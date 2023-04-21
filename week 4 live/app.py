@@ -18,5 +18,5 @@ def funct():
 
 # @app.route('/output', methods = ['GET','POST'])
 # def funct():
-app.run(debug=True)
+app.run()
 

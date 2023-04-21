@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+	<h1>Student Details</h1>
+    {%- for student in stu_details|groupby('Student id') -%}
+		{% if student.grouper == y %}
+		<table border="1%">
+			<tr>
+				<th>Student Id</th>
+				<th>Course Id</th>
+				<th>Marks</th>
+			</tr>
+	        {% for course in student.list %}
+			<tr>
+				<td>{{ course['Student id'] }}</td>
+				<td>{{ course['Course id']}}</td>
+				<td>{{ course['Marks']}}</td>
+			</tr>
+			{% endfor %}
+			<tr>
+				<td colspan="2" id="totalm">Total Marks</td>
+				<td>{{student.list|sum('Marks')}}</td>
+			</tr>
+		</table>
+		{% endif %}
+	{%- endfor %}
+    <br><br>
+    <a href="/">Go back</a>
+</body>
+</html>
